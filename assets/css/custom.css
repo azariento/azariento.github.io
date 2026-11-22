@@ -135,6 +135,7 @@ a:hover {
 
 .about .content ul li {
   margin-bottom: 12px;
+  flex-wrap: wrap;
 }
 
 .resume .resume-item {
@@ -171,11 +172,6 @@ a:hover {
   border-radius: 0 0 12px 12px;
 }
 
-/*--------------------------------------------------------------
-# Task 5: Navigation menu and back-to-top button
---------------------------------------------------------------*/
-
-/* Component 1: Navigation menu */
 .navmenu a,
 .navmenu a:focus {
   color: #1d2b53;
@@ -192,7 +188,6 @@ a:hover {
   background: #1d2b53;
 }
 
-/* Component 2: Back-to-top button */
 .scroll-top {
   background-color: #c2410c;
   width: 48px;
@@ -203,4 +198,99 @@ a:hover {
 
 .scroll-top:hover {
   background-color: #9a3412;
+}
+
+.services ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.services ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 10px;
+}
+
+.services ul li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 7px;
+  width: 10px;
+  height: 10px;
+  background: #c2410c;
+  transform: rotate(45deg);
+}
+
+.services ul ul {
+  margin-top: 10px;
+  padding-left: 15px;
+  border-left: 2px solid #e3e7ef;
+}
+
+.services ul ul li {
+  font-size: 15px;
+  color: #3b4250;
+}
+
+.services ul ul li::before {
+  left: 6px;
+  top: 5px;
+  width: 8px;
+  height: 8px;
+  background: transparent;
+  border: 2px solid #1d2b53;
+  border-radius: 50%;
+  transform: none;
+}
+
+.services ol {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: step;
+}
+
+.services ol li {
+  position: relative;
+  padding-left: 42px;
+  margin-bottom: 14px;
+  counter-increment: step;
+}
+
+.services ol li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #1d2b53;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.services .table thead th {
+  background-color: #1d2b53;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #c2410c;
+}
+
+.services .table tbody tr:hover td {
+  background-color: #fde7dc;
+  box-shadow: none;
+}
+
+.services .table th,
+.services .table td {
+  padding: 14px 18px;
+  text-align: center;
+  vertical-align: middle;
 }
