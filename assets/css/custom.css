@@ -448,3 +448,216 @@ a:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/*--------------------------------------------------------------
+# Task 4: XP progress bar
+--------------------------------------------------------------*/
+
+/* Separated from the XP boxes by a thin line */
+.competency .xp-progress {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #e3e7ef;
+}
+
+/* Title on the left, value on the right (Flexbox) */
+.competency .xp-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.competency .xp-progress-title {
+  font-weight: 600;
+  color: #1d2b53;
+}
+
+.competency .xp-progress-value {
+  font-size: 14px;
+  color: #475569;
+}
+
+/* Remaining part: the grey track */
+.competency .xp-bar {
+  height: 16px;
+  background: #e2e8f0;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Completed part: the teal fill */
+.competency .xp-bar-fill {
+  width: 57%;
+  height: 100%;
+  background: linear-gradient(90deg, #0f766e, #14b8a6);
+  border-radius: 20px;
+}
+
+/*--------------------------------------------------------------
+# Task 5: Skill statistics
+--------------------------------------------------------------*/
+
+/* Title on the left, statistics on the right (Flexbox) */
+.competency .stats-panel {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 16px 24px;
+}
+
+.competency .stats-title {
+  font-size: 20px;
+  margin: 0;
+  padding-right: 30px;
+  border-right: 1px solid #e3e7ef;
+  white-space: nowrap;
+}
+
+/* 3 statistics side by side (CSS Grid) */
+.competency .stats-items {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* One statistic: icon + text in a row (Flexbox) */
+.competency .stat-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.competency .stat-item i {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.competency .stat-total i {
+  color: #1d2b53;
+  background: #eef1f8;
+}
+
+.competency .stat-done i {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.competency .stat-rate i {
+  color: #1e40af;
+  background: #dbeafe;
+}
+
+/* Small label above, big value below */
+.competency .stat-label {
+  display: block;
+  font-size: 13px;
+  color: #475569;
+}
+
+.competency .stat-value {
+  display: block;
+  font-family: var(--heading-font);
+  font-size: 22px;
+  font-weight: 700;
+  color: #1d2b53;
+}
+
+/* On small screens the title goes above, items under each other */
+@media (max-width: 767px) {
+  .competency .stats-panel {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .competency .stats-title {
+    padding-right: 0;
+    border-right: none;
+  }
+
+  .competency .stats-items {
+    grid-template-columns: 1fr;
+  }
+}
+
+.services {
+  background: linear-gradient(135deg, #eef4ff, #fde7dc, #effaf3, #eef1f8);
+  background-size: 400% 400%;
+  animation: services-gradient 12s ease infinite;
+}
+
+@keyframes services-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/*--------------------------------------------------------------
+# Complementary task 2: Animated CSS shapes (About)
+--------------------------------------------------------------*/
+
+/* Shapes in one row under the photo (Flexbox) */
+.about .about-shapes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-top: 50px;
+}
+
+/* Shape 1: circle (floating) */
+.about .shape-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #1d2b53);
+  animation: shape-float 3s ease-in-out infinite;
+}
+
+/* Shape 2: triangle (rotating) */
+.about .shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  border-bottom: 80px solid #c2410c;
+  animation: shape-rotate 6s linear infinite;
+}
+
+/* Floating: up 20px and back down */
+@keyframes shape-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Rotating: one full turn */
+@keyframes shape-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
